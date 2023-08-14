@@ -1,0 +1,387 @@
+@import "./function.scss";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+
+  body {
+    font-size: 1.6rem;
+    font-family: "Montserrat", sans-serif !important;
+
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+// navbar
+.navbar_outer {
+  position: relative;
+  z-index: 10000000;
+}
+
+.navbar_right {
+  // responsive
+  @include media("<990px") {
+    animation: 0.6s;
+    justify-content: center !important;
+    flex-direction: column !important;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    background-color: white;
+    left: 0%;
+
+    & > li {
+      width: 100%;
+      border: none !important;
+      & > a {
+        text-align: center;
+        padding-block: 1rem;
+      }
+    }
+  }
+
+  // right styling
+
+  & > li {
+    width: max-content;
+    padding-inline: 1rem;
+
+    @include media("<=1200px") {
+      padding-inline: 0.5rem;
+      @include media("<=1046px") {
+        padding-inline: 0.3rem;
+      }
+    }
+
+    @include flex(center, center);
+    & > a {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+  }
+
+  & > :not(:nth-last-child(1)) {
+    border-right: 0.2rem solid black;
+  }
+}
+
+.navbar_left {
+  & > li > img {
+    width: 25rem;
+
+    @include media("<576px") {
+      width: 100%;
+    }
+  }
+}
+
+.navbar_hamburger {
+  & > i {
+    font-size: 3rem;
+  }
+}
+
+// banner
+
+.banner_outer {
+  background-image: url("/public/law-authority-lawyer-notion-courtroom-judgement-gavel-hammer-legislation-judicial-decision-generative-ai.png");
+  background-repeat: no-repeat;
+  background-position-y: -25rem;
+  position: relative;
+
+  @include media("<=1280px") {
+    background-position-x: -20rem;
+
+    @include media("<=1086px") {
+      background-position-x: -40rem;
+
+      @include media("<=990px") {
+        background-position-x: -60rem;
+
+        @include media("<=690px") {
+          background-position-x: -80rem;
+        }
+      }
+    }
+  }
+
+  & > ::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background-image: linear-gradient(to left, transparent 60%, #feeccc 90%);
+
+    @include media("<=1280px") {
+      background-image: linear-gradient(to left, transparent 40%, #feeccc 90%);
+
+      @include media("<=578px") {
+        background-image: linear-gradient(
+          to left,
+          transparent 20%,
+          #feeccc 90%
+        );
+
+        @include media("<=400px") {
+          background-image: linear-gradient(
+            to left,
+            transparent 10%,
+            #feeccc 90%
+          );
+        }
+      }
+    }
+  }
+}
+
+.banner_row {
+  min-height: 80vh;
+}
+
+.banner_left {
+  z-index: 2;
+  & > .main_heading {
+    margin-top: 10rem;
+    font-size: clamp(4rem, 7.2rem, 6vw);
+    text-transform: uppercase;
+  }
+
+  & > :nth-child(2) {
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-left: 0.8rem;
+    @include flex(flex-start, center);
+    column-gap: 2rem;
+    font-size: clamp(1.2rem, 1.5rem, 2vw);
+
+    & > span {
+      display: inline-block;
+      width: clamp(5rem, 15rem, 10vw);
+      height: 0.2rem;
+      background-color: black;
+    }
+  }
+
+  & > :not(:nth-child(1)) {
+    margin-top: 2rem;
+  }
+}
+
+.navigation {
+  margin-left: 0.8rem;
+
+  & > div {
+    display: inline-block;
+    width: clamp(0.8rem, 1rem, 1vw);
+    height: clamp(0.8rem, 1rem, 1vw);
+    outline: 0.1rem solid black;
+  }
+
+  & > :nth-child(2) {
+    background-color: black;
+  }
+}
+
+// about us
+
+.about_row {
+  @include padding;
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+  @include media("<=768px") {
+    row-gap: 5rem;
+  }
+  @include default_button;
+}
+
+.about_left {
+  & > :not(:nth-child(1)) {
+    margin-top: 1rem;
+  }
+}
+
+.about_card {
+  @include flex(flex-start, center);
+  column-gap: 2rem;
+  max-width: 60rem;
+  & > .icon {
+    display: inline-block;
+
+    & > img {
+      width: clamp(6rem, 8rem, 6vw);
+    }
+  }
+  @include yellow_heading;
+}
+
+.about_right {
+  & > :not(:nth-child(1)) {
+    margin-top: 2rem;
+  }
+}
+
+// service
+.service_row {
+  @include padding;
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+}
+
+.service_left {
+  & > :nth-child(2) {
+    @include default_button;
+  }
+}
+
+.service_right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4rem, 3vw);
+  place-items: center;
+
+  @include media("<=992px") {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include media("<=768px") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  & > :nth-last-child(1) {
+    background-color: $yellow;
+    @include flex(center, center);
+  }
+}
+
+.services_card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  @include media("<=768px") {
+    max-width: 50rem;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+  }
+
+  & > .service_card_content {
+    width: 80%;
+    position: absolute;
+    @include flex(flex-start, center);
+    column-gap: 2rem;
+    right: 0rem;
+    bottom: 0rem;
+    z-index: 3;
+    background-color: white;
+    & > .icon_container img {
+      width: clamp(6rem, 8rem, 6vw);
+    }
+
+    & > .card_heading {
+      & > h2 {
+        font-weight: 600;
+        text-transform: capitalize;
+        font-size: clamp(1.8rem, 2.4rem, 2vw);
+      }
+    }
+  }
+
+  // transition: 0.5s;
+  // &:hover {
+  //   scale: 1.1;
+  // }
+}
+
+.last_service_card {
+  padding: 2rem;
+  color: white;
+  text-align: center;
+
+  & > :nth-last-child(1) {
+    text-align: left;
+    color: black;
+    @include flex(flex-start, center);
+    column-gap: 1rem;
+    & > span {
+      display: inline-flex;
+      height: 0.2rem;
+      width: 5rem;
+      margin-left: 0.5rem;
+      background-color: black;
+    }
+
+    & > p {
+      font-weight: 600;
+    }
+  }
+
+  & > :nth-child(2),
+  :nth-child(3) > p {
+    font-size: clamp(1.2rem, 1.6rem, 2vw);
+  }
+
+  & > :nth-child(3) {
+    margin-top: 2rem;
+  }
+}
+
+// news
+
+.news_row {
+  @include padding;
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+}
+
+.news_right {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4rem, 3vw);
+  padding-top: clamp(3rem, 6rem, 5vw);
+  place-items: center;
+  @include media("<=992px") {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include media("<=768px") {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

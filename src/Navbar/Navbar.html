@@ -1,0 +1,49 @@
+<section class="container-fluid navbar_outer">
+  <section class="container-fluid navbar_inner">
+    <section
+      class="row py-4 justify-content-between align-items-center navbar_row"
+    >
+      <ul class="col-5 col-md-3 navbar_left">
+        <li>
+          <img src="/logo.png" alt="" />
+        </li>
+      </ul>
+      <ul
+        class="col-8 d-none d-lg-flex navbar_right align-items-center justify-content-end"
+      >
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Testimonials</a></li>
+        <li><a href="#">Carrer</a></li>
+        <li><a href="#">Our practise</a></li>
+        <li><a href="#">CSR</a></li>
+        <li><a href="#">Our story</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+
+      <section class="col navbar_hamburger text-end d-lg-none">
+        <i class="hamburger fa-solid fa-bars"></i>
+      </section>
+    </section>
+  </section>
+</section>
+
+<script>
+  // const hamburger = document.querySelector(".hamburger");
+  // const slidenav = document.querySelector(".navbar_right");
+
+  $(document).ready(function () {
+    $(".hamburger").click(function () {
+      if (!$(".hamburger").hasClass("fa-xmark")) {
+        $(".hamburger").addClass("fa-xmark");
+        $(".navbar_right").removeClass("d-none");
+        $(".navbar_right").fadeIn();
+      } else {
+        $(".hamburger").removeClass("fa-xmark");
+        $(".navbar_right").addClass("d-none");
+        $(".navbar_right").fadeOut();
+      }
+    });
+  });
+</script>

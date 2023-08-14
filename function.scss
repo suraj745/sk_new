@@ -1,0 +1,68 @@
+@import "/node_modules/include-media/dist/include-media";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@mixin flex($h, $v) {
+  display: flex;
+  justify-content: $h;
+  align-items: $v;
+}
+
+$yellow: #f4b50e;
+$dark_blue: #1a243f;
+$darkest_blue: #0f131d;
+
+@mixin small_heading {
+  .small_heading {
+    font-size: clamp(1.3rem, 1.6rem, 3vw);
+    font-weight: 600;
+    margin-left: 0.5rem;
+    text-transform: uppercase;
+  }
+}
+
+@mixin yellow_heading {
+  .yellow_heading {
+    font-size: clamp(1.3rem, 1.6rem, 3vw);
+    font-weight: 600;
+    color: $yellow;
+    text-transform: uppercase;
+  }
+}
+
+@mixin big_heading {
+  .big_heading {
+    font-size: clamp(2.2rem, 4rem, 3.5vw);
+    font-weight: 600;
+    border-bottom: 0.2rem solid $yellow;
+    width: max-content;
+    text-transform: capitalize;
+  }
+}
+
+@mixin paragraph {
+  .paragraph {
+    font-size: clamp(1.2rem, 1.6rem, 4vw);
+    font-weight: 600;
+  }
+}
+
+@mixin padding {
+  padding-block: clamp(3rem, 7rem, 7vw);
+}
+
+@mixin default_button {
+  .default_button {
+    background: none;
+    border: none;
+    outline: none;
+    background-color: $yellow;
+    color: white;
+    font-weight: 500;
+    font-size: clamp(1.2rem, 1.6rem, 3vw);
+
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+  }
+}
+
+
