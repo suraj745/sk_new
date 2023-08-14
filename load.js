@@ -1,1 +1,1 @@
-$(".load_navbar").load("./src/Navbar/Navbar.html");
+$(".load_navbar").load("./pages/Navbar/Navbar.html");
