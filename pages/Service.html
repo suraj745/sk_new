@@ -16,12 +16,22 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="/global.scss" />
     <link rel="stylesheet" href="./services.scss" />
     <title>Services</title>
   </head>
   <body>
+    <div class="loader">
+      <div class="spinner"></div>
+    </div>
     <!-- navbar -->
     <section class="load_navbar"></section>
 
@@ -29,19 +39,26 @@
     <div class="container-fluid p-0 mt-3 mb-3">
       <div class="row">
         <div class="col-12 hero_img_section_wrapper">
-          <img class="hero_imag" src="../public/lady-justice-law-library-concept.png" alt="image" />
+          <!-- <img
+            class="hero_imag"
+            src="../public/lady-justice-law-library-concept.png"
+            alt="image"
+          /> -->
         </div>
       </div>
     </div>
 
     <!-- services main section -->
-    <div class="container-fluid p-5">
-      <div class="row">
-        <h2 class="text-center">Our Services</h2>
+    <div class="container-fluid p-5 services_page_outer">
+      <div class="row services_page_row">
+        <h2 class="text-center big_heading">Our Services</h2>
         <div class="col-12">
           <ul class="service_right pt-5">
             <li class="services_card">
-              <img src="/public/service/gavel-with-books-old-wooden-desk.png" alt="" />
+              <img
+                src="/public/service/gavel-with-books-old-wooden-desk.png"
+                alt=""
+              />
 
               <section class="service_card_content">
                 <section class="icon_container">
@@ -176,7 +193,10 @@
               </section>
             </li>
             <li class="services_card">
-              <img src="/public/service/gavel-with-books-old-wooden-desk.png" alt="" />
+              <img
+                src="/public/service/gavel-with-books-old-wooden-desk.png"
+                alt=""
+              />
 
               <section class="service_card_content">
                 <section class="icon_container">
@@ -221,9 +241,14 @@
               </section>
             </li>
           </ul>
-          <ul class="servicessss extra_service d-flex justify-content-between p-5">
+          <ul
+            class="servicessss extra_service d-flex justify-content-between p-5"
+          >
             <li class="services_card">
-              <img src="/public/service/still-life-with-scales-justice.png" alt="" />
+              <img
+                src="/public/service/still-life-with-scales-justice.png"
+                alt=""
+              />
 
               <section class="service_card_content">
                 <section class="icon_container">
@@ -245,6 +270,9 @@
         </div>
       </div>
     </div>
+
+    <!-- footer -->
+    <section class="load_footer"></section>
   </body>
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
   <script
@@ -253,7 +281,5 @@
     crossorigin="anonymous"
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script>
-    $(".load_navbar").load("/pages/Navbar/Navbar.html");
-  </script>
+  <script type="module" src="/load.js"></script>
 </html>

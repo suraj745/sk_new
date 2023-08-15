@@ -1,21 +1,25 @@
 <section class="container-fluid navbar_outer">
   <section class="container-fluid navbar_inner">
-    <section class="row py-4 justify-content-between align-items-center navbar_row">
+    <section
+      class="row py-4 justify-content-between align-items-center navbar_row"
+    >
       <ul class="col-5 col-md-3 navbar_left">
         <li>
-          <img src="/logo.png" alt="" />
+          <a href="/"> <img src="/logo.png" alt="" /></a>
         </li>
       </ul>
-      <ul class="col-8 d-none d-lg-flex navbar_right align-items-center justify-content-end">
-        <li><a href="../../index.html">Home</a></li>
-        <li><a href="#">About us</a></li>
-        <li><a href="../../pages/Services.html">Services</a></li>
+      <ul
+        class="col-8 d-none d-lg-flex navbar_right align-items-center justify-content-end"
+      >
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/About.html">About us</a></li>
+        <li><a href="/pages/Service.html">Services</a></li>
         <li><a href="#">Testimonials</a></li>
-        <li><a href="../../pages/Carrers.html">Carrer</a></li>
+        <li><a href="/pages/Carrers.html">Carrer</a></li>
         <li><a href="#">Our practise</a></li>
         <li><a href="#">CSR</a></li>
         <li><a href="#">Our story</a></li>
-        <li><a href="#">Contact us</a></li>
+        <li><a href="/pages/Contact.html">Contact us</a></li>
       </ul>
 
       <section class="col navbar_hamburger text-end d-lg-none">
@@ -41,5 +45,18 @@
         $(".navbar_right").fadeOut();
       }
     });
+  });
+</script>
+
+<script>
+  window.addEventListener("scroll", function () {
+    var scrollPos = window.scrollY;
+    let navbar_select = document.querySelector(".load_navbar");
+    // Print the scroll position to the console
+    if (scrollPos > 100) {
+      navbar_select.classList.add("sticky_navbar");
+    } else {
+      navbar_select.classList.remove("sticky_navbar");
+    }
   });
 </script>

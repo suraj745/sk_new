@@ -42,7 +42,52 @@ html {
 // navbar
 .navbar_outer {
   position: relative;
-  z-index: 10000000;
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.sticky_navbar {
+  position: sticky;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: white;
+  z-index: 999;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  transition: 0.3s;
+}
+
+// loader
+.loader {
+  position: fixed;
+  z-index: 99999999999999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  @include flex(center, center);
+  background-color: rgba(255, 255, 255, 0.633);
+  opacity: 0.7;
+  z-index: 9999;
+}
+
+.loader .spinner {
+  border: 8px solid white;
+  border-radius: 50%;
+  border-top: 8px solid $yellow;
+  width: 10rem;
+  height: 10rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .navbar_right {
@@ -95,7 +140,7 @@ html {
 }
 
 .navbar_left {
-  & > li > img {
+  & > li > a > img {
     width: 25rem;
 
     @include media("<576px") {
@@ -382,6 +427,734 @@ html {
 
     @include media("<=768px") {
       grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+// testimonial
+
+.testimonial_row {
+  @include padding;
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+
+  .big_heading {
+    color: white;
+  }
+  @include media(">=768px") {
+    min-height: 80vh;
+  }
+  background-color: $darkest_blue;
+
+  & > .testimonial_right {
+    & > .testimonial_swiper {
+      & > .swiper-pagination {
+        & > .swiper-pagination-bullet {
+          width: 1rem !important;
+          height: 1rem !important;
+          background-color: $yellow !important;
+        }
+      }
+    }
+  }
+
+  .swiper-slide {
+    @include flex(center, center);
+    min-height: 60vh;
+
+    @include media("<=768px") {
+      @include flex(center, flex-start);
+      min-height: 80vh;
+
+      @include media("<=576px") {
+        min-height: 75vh;
+      }
+    }
+  }
+
+  // testimonial_card
+
+  .test_card {
+    max-width: 85rem !important;
+    @include flex(center, center);
+
+    @include media("<=768px") {
+      flex-direction: column;
+    }
+    column-gap: 7rem;
+
+    & > .test_profile {
+      border-radius: 5rem;
+      overflow: hidden;
+      width: 30rem;
+      height: 30rem;
+
+      @include media("<=768px") {
+        width: 25rem;
+        height: 25rem;
+      }
+
+      & > img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    & > .test_description {
+      position: relative;
+      & > :not(:nth-child(1)) {
+        margin-top: 2rem;
+      }
+      & > .big_heading {
+        color: $yellow;
+      }
+
+      & > p {
+        color: white;
+      }
+      & > .para {
+        font-size: clamp(1.3rem, 2rem, 4vw);
+      }
+
+      & > :nth-last-child(1) {
+        font-size: clamp(1.2rem, 1.6rem, 3vw);
+      }
+
+      // comman
+
+      & > img {
+        position: absolute;
+        max-width: 10rem;
+      }
+
+      .one,
+      .two {
+        display: none;
+      }
+      @include media(">=768px") {
+        .one,
+        .two {
+          display: block;
+        }
+        & > .one {
+          top: -2rem;
+          left: -5rem;
+        }
+        & > .two {
+          bottom: -3rem;
+          right: 0;
+          rotate: 180deg;
+        }
+      }
+    }
+  }
+}
+
+// contact
+
+.home_contact_card_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+
+  @include media("<=990px") {
+    grid-template-columns: repeat(1, 1fr);
+
+    @include media("<=768px") {
+      grid-template-columns: repeat(2, 1fr);
+
+      @include media("<=576px") {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+.home_contact_card {
+  @include flex(space-between, center);
+  max-width: max-content;
+  column-gap: 2rem;
+
+  & > span {
+    color: white;
+    background-color: $yellow;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  & > .content {
+    & > :nth-child(1) {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    & > :nth-child(2) {
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+  }
+}
+.home_contact_right {
+  @include yellow_heading;
+}
+
+.home_page_map {
+  width: clamp(40rem, 75rem, 50vw);
+  height: clamp(40rem, 75rem, 50vw);
+
+  @include media("<=768px") {
+    width: 100%;
+  }
+}
+
+// footer
+
+.footer_row {
+  @include padding;
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+
+  & > :nth-child(1) {
+    & > :not(:nth-child(1)) {
+      margin-top: 2rem;
+    }
+  }
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @include media("<=990px") {
+    grid-template-columns: repeat(2, 1fr);
+    place-items: top;
+
+    @include media("<=576px") {
+      grid-template-columns: repeat(1, 1fr);
+      place-items: top;
+    }
+  }
+}
+.footer_outer {
+  background-color: $darkest_blue;
+  // logo
+  .footer_logo {
+    & > img {
+      width: 25rem;
+
+      @include media("<576px") {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.footer_address {
+  & > :not(:nth-child(0)) {
+    margin-top: 1rem;
+  }
+  & > .home_contact_card {
+    color: white;
+
+    & > :nth-child(1) {
+      background: none;
+      width: max-content;
+      color: $yellow;
+    }
+
+    & > .content p,
+    a {
+      color: white !important;
+      font-weight: 400 !important;
+      font-size: clamp(1.3rem, 1.6rem, 3vw);
+    }
+
+    & > .content {
+      & > a {
+        text-decoration: none;
+        text-transform: none;
+      }
+    }
+  }
+}
+// footer_social_link
+
+.footer_social_links {
+  & > h1 {
+    margin-left: 0rem !important;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  & > .social_icons {
+    @include flex(flex-start, center);
+    column-gap: 1rem;
+    margin-top: 2rem;
+    & > a {
+      color: white;
+      background-color: $yellow;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 5rem;
+      height: 5rem;
+      text-decoration: none;
+    }
+  }
+}
+
+.footer_links_section {
+  @include yellow_heading;
+  & > :nth-child(1) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  & > li {
+    & > a {
+      color: white;
+      text-decoration: none;
+      font-size: clamp(1.3rem, 1.6rem, 3vw);
+    }
+
+    padding-block: clamp(0.5rem, 2rem, 2vw);
+  }
+}
+
+.footer_phone {
+  & > section {
+    outline: 0.1rem solid $yellow;
+    @include flex(flex-start, center);
+    column-gap: 2rem;
+    max-width: 25rem;
+
+    & > a {
+      text-decoration: none;
+      color: white;
+    }
+
+    & > :nth-child(1) {
+      padding: 1rem;
+      background: $yellow;
+      color: white !important;
+    }
+  }
+}
+
+// about page styles
+
+.about_page_row {
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+  @include padding;
+
+  .paragraph {
+    @include media("<=576px") {
+      & > .a {
+        display: none;
+      }
+    }
+  }
+  .big_heading {
+    border: none;
+  }
+
+  // left
+
+  .about_page_left {
+    & > :not(:nth-child(1)) {
+      margin-top: 3rem;
+    }
+    z-index: 2;
+  }
+}
+
+.about_page_outer {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  min-height: 80vh;
+  background-color: #e4e3e8;
+  background-image: url("/public/about/bussiness-people-working-team-office\ \(1\).png");
+  position: relative;
+
+  @include media("<=1180px") {
+    background-position: center -2rem;
+    background-size: cover;
+    overflow: hidden;
+
+    @include media("<=840px") {
+      background-size: auto;
+    }
+
+    & > ::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background-image: linear-gradient(to left, transparent 40%, #e4e3e8 90%);
+      z-index: 0;
+      z-index: 1;
+
+      @include media("<=576px") {
+        background-color: #e4e3e882;
+      }
+    }
+  }
+}
+
+// choose
+
+.choose_us_container {
+  & > .choose_us_row {
+    @include small_heading;
+    @include big_heading;
+    @include paragraph;
+    @include padding;
+    .paragraph {
+      @include media("<=899px") {
+        & > .a {
+          display: none;
+        }
+      }
+    }
+    .big_heading {
+      border: none;
+      width: 100%;
+    }
+    // left
+    & > .choose_us_left {
+      & > img {
+        width: 100%;
+      }
+    }
+
+    // right
+
+    & > .choose_us_right {
+      @include flex(center, center);
+      flex-direction: column;
+      text-align: center;
+      & > :not(:nth-child(1)) {
+        margin-top: 2rem;
+      }
+      & > .counter_container {
+        & > :not(:nth-child(1)) {
+          margin-top: 2rem;
+        }
+        & > .counter {
+          background-color: $yellow;
+          text-align: center;
+          border-radius: 2rem;
+          max-width: 40rem;
+          padding: 1rem 2rem;
+
+          & > :nth-child(1) {
+            font-size: clamp(3rem, 5rem, 4vw);
+            font-weight: bold;
+          }
+          & > :nth-child(2) {
+            font-size: clamp(1.5rem, 3rem, 2vw);
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+// mission section
+
+.mission_container {
+  & > .mission_row {
+    @include small_heading;
+    @include big_heading;
+    @include paragraph;
+    @include padding;
+
+    .mission_card_head {
+      margin-top: clamp(1rem, 5rem, 3vw);
+    }
+
+    .big_heading {
+      border: none;
+      font-weight: 500;
+      width: 100%;
+      text-transform: uppercase;
+    }
+
+    & > .mission_card {
+      & > .mission_card_para {
+        & > .paragraph {
+          border: none;
+
+          @include media("<=998px") {
+            & > .a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    // left
+
+    & .mission_left {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 2rem;
+
+      @include media("<=998px") {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 3rem;
+
+        @include media("<=768px") {
+          grid-template-columns: repeat(1, 1fr);
+          row-gap: 3rem;
+        }
+      }
+
+      .mission_card_image {
+        & > img {
+          max-width: 20rem;
+        }
+      }
+
+      & > :not(:nth-last-child(1)) {
+        .mission_card_image {
+          border-right: 0.2rem solid rgb(139, 138, 138);
+
+          @include media("<=998px") {
+            border: none;
+          }
+        }
+      }
+
+      & > .mission_card {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// user detail
+
+.user_detail_row {
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+  @include padding;
+}
+
+.user_detail_left {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: clamp(1rem, 3rem, 2vw);
+
+  @include media("<=1200px") {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 3rem;
+
+    @include media("<=990px") {
+      grid-template-columns: repeat(2, 1fr);
+      place-items: center;
+
+      @include media("<=768px") {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+
+.user_detail_card {
+  max-width: 30rem;
+
+  text-align: center;
+  border-radius: 5rem;
+  position: relative;
+  background-color: white;
+  padding-block: clamp(1rem, 3rem, 2vw);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  & > ::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-color: $darkest_blue;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+  }
+
+  & > :nth-child(1) {
+    position: relative;
+
+    & > img {
+      position: relative;
+      width: 18rem;
+      height: 18rem;
+      border-radius: 100%;
+      z-index: 4;
+    }
+  }
+
+  & > :not(:nth-child(1)) {
+    padding-block: 1rem;
+    padding-inline: 1rem;
+  }
+
+  & > :nth-child(2) {
+    position: relative;
+    margin-top: 2rem;
+    color: white;
+    background-color: $darkest_blue;
+    text-transform: uppercase;
+    font-size: clamp(1.4rem, 2rem, 3vw);
+
+    & > ::after {
+      content: "";
+      width: 0rem;
+      height: 0rem;
+      border-left: 1.5rem solid transparent;
+      border-right: 1.5rem solid transparent;
+      position: absolute;
+      border-bottom: 1.5rem solid $darkest_blue;
+      margin: 2rem;
+      z-index: 1;
+      rotate: 45deg;
+      left: -3.9rem;
+      bottom: -3.2rem;
+    }
+
+    & > ::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: $darkest_blue;
+      top: 0rem;
+      left: -2rem;
+      z-index: -1;
+    }
+  }
+
+  & > :nth-child(3) {
+    text-transform: uppercase;
+    background-color: #e6e6e6;
+    font-size: clamp(1.4rem, 1.6rem, 3vw);
+    font-weight: 500;
+  }
+
+  & > :nth-last-child(1) {
+    @include flex(center, center);
+
+    & > p {
+      font-weight: 550;
+      text-align: justify;
+      position: relative;
+    }
+  }
+
+  @include media("<=990px") {
+    min-width: 30rem;
+  }
+}
+
+// contact_page
+
+// .contact_page_outer {
+//   background-image: url("/public/contact/consult-advice-information-serveice-sharing-concept.png");
+//   min-height: 80vh;
+//   background-repeat: no-repeat;
+//   background-size: 100%;
+//   background-position: center center;
+// }
+
+.contact_page_outer {
+  min-height: 80vh;
+
+  & > img {
+    width: 100%;
+    height: 80vh;
+
+    object-fit: cover;
+  }
+}
+
+.contact_page_form_row {
+  @include small_heading;
+  @include big_heading;
+  @include paragraph;
+  @include padding;
+  @include default_button;
+
+  .default_button {
+    width: 100%;
+    border-radius: 5rem;
+  }
+  .big_heading {
+    border: none;
+  }
+}
+
+.form_page_container {
+  display: flex;
+
+  & > .main_form_styles {
+    width: 100%;
+    @include media("<=990px") {
+      width: 60rem;
+    }
+    & > li {
+      margin-top: 2rem;
+      & > input,
+      textarea {
+        width: 100%;
+        background: none;
+        border: none;
+        outline: none;
+        background: #f4f4f4;
+        padding: 1rem 2rem;
+      }
+    }
+
+    & > li {
+      & > textarea {
+        resize: none;
+        min-height: 15rem;
+      }
+    }
+
+    & > :nth-last-child(2) {
+      & > input {
+        height: 15rem;
+      }
+    }
+  }
+}
+
+.contact_page_map {
+  width: 100%;
+  min-height: 75rem;
+}
+
+.contact_page_form_right {
+  & > .home_contact_card_grid {
+    width: 100%;
+  }
+
+  @include media("<=990px") {
+    @include flex(space-between, center);
+
+    @include media("<=776px") {
+      flex-direction: column;
     }
   }
 }

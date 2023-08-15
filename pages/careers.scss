@@ -1,8 +1,15 @@
-$darkest_blue: #0f131d;
-$yellow: #f4b50e;
-.hero_imag {
-  height: 100%;
-  width: 100%;
+@import "/function.scss";
+// .hero_imag {
+//   height: 100%;
+//   width: 100%;
+// }
+
+.hero_img_section_wrapper {
+  min-height: 80vh;
+  background-image: url("/public/business-job-interview-concept.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -16rem;
 }
 .name_wrapper input {
   width: 100%;

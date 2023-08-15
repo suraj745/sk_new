@@ -1,6 +1,10 @@
-.hero_imag {
-  height: 100%;
-  width: 100%;
+@import "/function.scss";
+.hero_img_section_wrapper {
+  min-height: 80vh;
+  background-image: url("/public/lady-justice-law-library-concept.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center -16rem;
 }
 body {
   overflow-x: hidden;
@@ -63,5 +67,13 @@ body {
   .extra_service {
     flex-direction: column;
     align-items: center;
+  }
+}
+
+.services_page_row {
+  @include big_heading;
+  .big_heading {
+    border: none;
+    width: 100%;
   }
 }
