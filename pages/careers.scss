@@ -1,0 +1,96 @@
+$darkest_blue: #0f131d;
+$yellow: #f4b50e;
+.hero_imag {
+  height: 100%;
+  width: 100%;
+}
+.name_wrapper input {
+  width: 100%;
+}
+.name_wrapper_2 input {
+  width: 100%;
+}
+form div {
+  width: 100%;
+
+  & input {
+    width: 100%;
+    height: 4rem;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: #e8e8e8;
+    outline: none;
+    padding: 1rem;
+  }
+}
+form {
+  border: 1px solid $darkest_blue;
+  padding: 5rem;
+}
+label {
+  color: $darkest_blue;
+  margin-bottom: 0.5rem;
+}
+.title_text h2 {
+  text-transform: capitalize;
+  background-color: $yellow;
+}
+.horizontal_line {
+  background-color: #0f131d;
+  margin-left: 1rem;
+  width: 100%;
+  margin: 0;
+  height: 5rem;
+}
+.horizontal_line {
+  width: 100%;
+  height: 5rem;
+}
+button {
+  padding: 0.81rem 10rem;
+  border: none;
+}
+.submit_btn {
+  background-color: $yellow;
+  color: #fff;
+}
+.cancel_btn {
+  border: 2px solid $yellow;
+  color: #0f131d;
+  background-color: transparent;
+}
+@media (min-width: 2400px) {
+  html {
+    font-size: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .submit_group {
+    flex-direction: column;
+  }
+  .submit_btn {
+    margin-bottom: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .pass_group,
+  .name_wrapper_box,
+  .city_wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .pass {
+    padding-right: 0 !important;
+    margin-bottom: 1rem;
+  }
+  .name_wrapper,
+  .name_wrapper_2,
+  .city_1,
+  .city_2 {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  form {
+    padding: 1rem !important;
+  }
+}
