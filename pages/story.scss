@@ -4,30 +4,308 @@
   background-image: url("/public/three-people-standing-front-building.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center -16rem;
+  background-position: center -5rem;
 }
-.services_page_row {
+.timeline_row {
+  @include small_heading;
   @include big_heading;
+  @include paragraph;
+  @include padding;
+  @include default_button;
+
+  .paragraph {
+    @include media("<=550px") {
+      font-size: clamp(1.2rem, 1.6rem, 2vw);
+    }
+  }
+
   .big_heading {
     border: none;
-    width: 100%;
+    width: auto;
+  }
+  & > .timeline_left {
+    text-align: center;
   }
 }
-.story_section {
-  background-image: url("/public/vector.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  height: 100vh;
+
+// time_card
+
+.time_card {
+  padding: 1rem 2rem;
   width: 100%;
-  position: relative;
-}
-.right_container {
-  position: absolute;
-  top: 0;
-  left: 85rem;
-  top: 5rem;
-  & p {
-    font-size: 1rem;
+  min-height: 20rem;
+  @include media("<=550px") {
+    text-align: center;
+  }
+
+  & > :nth-child(3) {
+    & > p {
+      @include media("<=800px") {
+        & > .a {
+          display: none;
+        }
+      }
+    }
+  }
+
+  & > .dotted_line {
+    position: relative;
+    & > span {
+      height: 0rem;
+      display: block;
+      width: 98%;
+      border: 0.2rem dashed black;
+      position: relative;
+
+      @include media("<=700px") {
+        width: 60%;
+
+        @include media("<=550px") {
+          display: none;
+        }
+      }
+    }
+  }
+
+  & > :nth-last-child(1) {
+    & > p {
+      font-weight: 600;
+    }
   }
 }
+
+.timeline_grid {
+  display: grid;
+
+  grid-template-columns: max(40rem) 2rem max(40rem);
+  @include media("<=1008px") {
+    grid-template-columns: max(30rem) 2rem max(30rem);
+    @include media("<=800px") {
+      grid-template-columns: max(25rem) 2rem max(25rem);
+      @include media("<=550px") {
+        grid-template-columns: 1fr 0.2rem 1fr;
+      }
+    }
+  }
+  .center_line {
+    background-color: $yellow;
+    width: 1.5rem;
+    border-radius: 5rem;
+    height: 100%;
+  }
+}
+
+.timeline_left_cards {
+  text-align: right;
+  display: grid;
+  grid-template-rows: repeat(auto, 1fr);
+
+  .empty_card {
+    display: none;
+  }
+  & > .time_card {
+    & > :nth-child(1) {
+      h1 {
+        padding-inline-end: 2rem;
+      }
+    }
+    & > .dotted_line {
+      @include flex(end, center);
+      & > img {
+        position: absolute;
+        width: 10rem;
+        left: -9.2rem;
+        top: -5rem;
+
+        @include media("<=700px") {
+          position: unset;
+          width: 8rem;
+          left: -2rem;
+
+          @include media("<=550px") {
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+
+  & > :nth-child(1) {
+    & > li {
+      & > .big_heading {
+        border: 0.2rem solid $yellow;
+        width: fit-content;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+      }
+    }
+  }
+
+  :not(:nth-child(1)) {
+    & > :nth-child(1) {
+      position: relative;
+      & > ::after {
+        content: "";
+        width: 0rem;
+        height: 0rem;
+        border-left: 1.5rem solid transparent;
+        border-right: 1.5rem solid transparent;
+        position: absolute;
+        border-bottom: 1.5rem solid $darkest_blue;
+        margin: 2rem;
+        z-index: 10;
+        rotate: -90deg;
+        right: -3.5rem;
+        bottom: -2.8rem;
+
+        @include media("<=700px") {
+          bottom: -6.8rem;
+        }
+      }
+    }
+  }
+
+  & > :not(:nth-child(1)) {
+    & > :nth-child(1) {
+      &::before {
+        content: "";
+        position: absolute;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: 1rem solid $yellow;
+        border-radius: 100%;
+        right: -4.7rem;
+        bottom: -1.6rem;
+        background-color: white;
+
+        @include media("<=700px") {
+          bottom: -5.7rem;
+        }
+      }
+    }
+  }
+}
+
+.timeline_right_cards {
+  & > .time_card {
+    & > :nth-child(1) {
+      h1 {
+        padding-inline-start: 2rem;
+      }
+    }
+    & > .dotted_line {
+      @include media(">=550px") {
+        @include flex(flex-start, center);
+      }
+      flex-direction: row-reverse;
+
+      & > img {
+        position: absolute;
+        width: 10rem;
+        right: -10rem;
+        top: -5rem;
+
+        @include media("<=700px") {
+          position: unset;
+          width: 8rem;
+          left: -2rem;
+
+          @include media("<=550px") {
+            margin-right: auto;
+            margin-left: auto;
+          }
+        }
+      }
+    }
+  }
+  & > :nth-last-child(1) {
+    & > li {
+      & > .big_heading {
+        border: 0.2rem solid $yellow;
+        width: fit-content;
+        padding: 1rem 2rem;
+        border-radius: 2rem;
+        @include media("<=550px") {
+          margin-left: 2rem;
+        }
+      }
+    }
+  }
+
+  // & > :not(:nth-last-child(1)) {
+  //   position: relative;
+  //  & >:nth-child(1){
+  //   & > ::after {
+  //     content: "";
+  //     width: 0rem;
+  //     height: 0rem;
+  //     border-left: 1.5rem solid transparent;
+  //     border-right: 1.5rem solid transparent;
+  //     position: absolute;
+  //     border-bottom: 1.5rem solid $darkest_blue;
+  //     margin: 2rem;
+  //     z-index: 10;
+  //     rotate: 90deg;
+  //     left: -4.4rem;
+  //     bottom: -2.8rem;
+  //   }
+  //  }
+  // }
+
+  & > :not(:nth-last-child(1)) {
+    & > :nth-child(1) {
+      & > ::before {
+        content: "";
+        position: absolute;
+        width: 3.5rem;
+        height: 3.5rem;
+        border: 1rem solid $yellow;
+        border-radius: 100%;
+        left: -5rem;
+        bottom: -1.6rem;
+        background-color: white;
+
+        @include media("<=700px") {
+          bottom: -6rem;
+
+          @include media("<=550px") {
+            left: -3.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  :not(:nth-last-child(1)) {
+    & > :nth-child(1) {
+      position: relative;
+      & > ::after {
+        content: "";
+        width: 0rem;
+        height: 0rem;
+        border-left: 1.5rem solid transparent;
+        border-right: 1.5rem solid transparent;
+        position: absolute;
+        border-bottom: 1.5rem solid $darkest_blue;
+        margin: 2rem;
+        z-index: 10;
+        rotate: 90deg;
+        left: -3.5rem;
+        bottom: -2.8rem;
+
+        @include media("<=700px") {
+          bottom: -6.8rem;
+
+          @include media("<=550px") {
+            left: -2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .dotted_line {
+//   position: relative;
+// }
