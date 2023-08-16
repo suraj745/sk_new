@@ -1097,6 +1097,9 @@ html {
 
   .default_button {
     width: 100%;
+    @include media("<=576px") {
+      width: auto;
+    }
     border-radius: 5rem;
   }
   .big_heading {
@@ -1104,19 +1107,41 @@ html {
   }
 }
 
-.form_page_container {
-  display: flex;
+// contact_page
 
-  & > .main_form_styles {
-    width: 100%;
+.contact_page_map {
+  width: 100%;
+  min-height: clamp(40rem, 75rem, 60vw);
+}
+
+.contact_page_form_right {
+  .home_contact_card_grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+
     @include media("<=990px") {
-      width: 60rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      @include media("<=768px") {
+        grid-template-columns: repeat(2, 1fr);
+
+        @include media("<=576px") {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
     }
+  }
+}
+
+.form_page_container {
+  & > .main_form_styles {
     & > li {
       margin-top: 2rem;
       & > input,
       textarea {
         width: 100%;
+
         background: none;
         border: none;
         outline: none;
@@ -1136,25 +1161,6 @@ html {
       & > input {
         height: 15rem;
       }
-    }
-  }
-}
-
-.contact_page_map {
-  width: 100%;
-  min-height: 75rem;
-}
-
-.contact_page_form_right {
-  & > .home_contact_card_grid {
-    width: 100%;
-  }
-
-  @include media("<=990px") {
-    @include flex(space-between, center);
-
-    @include media("<=776px") {
-      flex-direction: column;
     }
   }
 }
