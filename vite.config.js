@@ -11,9 +11,8 @@ export default {
         servicePage: "/pages/Service.html",
         contactPage: "/pages/Contact.html",
         storyPage: "/pages/Story.html",
-        carrerPage: "/pages/Carrers.html",
+        carrerPage: "/pages/Careers.html",
       },
     },
   },
 };
-ind

@@ -107,7 +107,7 @@ document.querySelector(
         <li><a href="/pages/About.html">About us</a></li>
         <li><a href="/pages/Service.html">Services</a></li>
         <li><a href="#">Testimonials</a></li>
-        <li><a href="/pages/Carrers.html">Carrer</a></li>
+        <li><a href="/pages/Careers.html">Career</a></li>
         <li><a href="#">Our practise</a></li>
         <li><a href="#">CSR</a></li>
         <li><a href="/pages/Story.html">Our story</a></li>
