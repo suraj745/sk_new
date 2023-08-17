@@ -193,18 +193,10 @@ html {
       background-image: linear-gradient(to left, transparent 40%, #feeccc 90%);
 
       @include media("<=578px") {
-        background-image: linear-gradient(
-          to left,
-          transparent 20%,
-          #feeccc 90%
-        );
+        background-image: linear-gradient(to left, transparent 20%, #feeccc 90%);
 
         @include media("<=400px") {
-          background-image: linear-gradient(
-            to left,
-            transparent 10%,
-            #feeccc 90%
-          );
+          background-image: linear-gradient(to left, transparent 10%, #feeccc 90%);
         }
       }
     }
@@ -977,8 +969,7 @@ html {
   position: relative;
   background-color: white;
   padding-block: clamp(1rem, 3rem, 2vw);
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
   & > ::after {
     content: "";
