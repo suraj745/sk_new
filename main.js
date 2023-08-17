@@ -88,9 +88,7 @@ document.querySelector(
   </footer>
   `;
 
-document.querySelector(
-  ".load_navbar"
-).innerHTML = `<section class="container-fluid navbar_outer">
+document.querySelector(".load_navbar").innerHTML = `<section class="container-fluid navbar_outer">
   <section class="container-fluid navbar_inner">
     <section
       class="row py-4 justify-content-between align-items-center navbar_row"
@@ -106,7 +104,6 @@ document.querySelector(
         <li><a href="/">Home</a></li>
         <li><a href="/pages/About.html">About us</a></li>
         <li><a href="/pages/Service.html">Services</a></li>
-        <li><a href="#">Testimonials</a></li>
         <li><a href="/pages/Careers.html">Career</a></li>
         <li><a href="#">Our practise</a></li>
         <li><a href="#">CSR</a></li>
